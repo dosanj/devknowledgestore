@@ -1,0 +1,23 @@
+{
+  "name": "devknowledgestore",
+  "version": "1.0.0",
+  "description": "Dev Knowledge Store",
+  "private": "true",
+  "scripts": {
+    "start": "cd src/ && http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dosanj/devknowledgestore.git"
+  },
+  "author": "Javed Dosani",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dosanj/devknowledgestore/issues"
+  },
+  "homepage": "https://github.com/dosanj/devknowledgestore#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "http-server": "^0.12.3"
+  }
+}
