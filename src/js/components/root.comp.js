@@ -1,5 +1,5 @@
 import { createComponentInstanceFromType } from '../utilities/components-registry.js';
-import { BaseComponent } from './base/base.comp.js';
+import { BaseComponent } from './base.comp.js';
 
 export class RootComponent extends BaseComponent {
   template = `<div data-component="navbar"></div>

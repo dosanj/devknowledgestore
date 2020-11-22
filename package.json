@@ -4,7 +4,7 @@
   "description": "Dev Knowledge Store",
   "private": "true",
   "scripts": {
-    "start": "cd src/ && http-server"
+    "start": "web-dev-server"
   },
   "repository": {
     "type": "git",
@@ -16,8 +16,9 @@
     "url": "https://github.com/dosanj/devknowledgestore/issues"
   },
   "homepage": "https://github.com/dosanj/devknowledgestore#readme",
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
-    "http-server": "^0.12.3"
+    "@web/dev-server": "0.0.24"
   }
 }
