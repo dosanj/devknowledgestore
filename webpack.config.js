@@ -17,6 +17,10 @@ module.exports = {
         use: 'raw-loader',
       },
       {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
+      {
         test: /\.s[c]ss$/i,
         use: [
           // Creates `style` nodes from JS strings
