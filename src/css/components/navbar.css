@@ -1,0 +1,19 @@
+.navbar {
+  height: 4rem;
+  background-color: var(--color-complimentry);
+  display: flex;
+  align-items: stretch;
+  padding: 0 1rem;
+  justify-content: space-between;
+}
+.navbar-app-name {
+  text-decoration: none;
+  color: var(--navbar-text-color);
+  font-size: 1.5rem;
+  align-self: center;
+}
+.navbar-end,
+.navbar-start {
+  display: flex;
+  align-items: center;
+}

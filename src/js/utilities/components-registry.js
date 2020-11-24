@@ -1,7 +1,9 @@
+import { ContainerComponent } from '../components/container/container.comp.js';
 import { NavbarComponent } from '../components/navbar/navbar.comp.js';
 
 const registery = {
   navbar: NavbarComponent,
+  'app-container': ContainerComponent,
 };
 
 export function registerComponent(type, component) {

@@ -3,6 +3,7 @@ import { createComponentInstanceFromType } from '../utilities/components-registr
 export class BaseComponent {
   template = ``;
   templatePath = null;
+  element = null;
   setProps() {}
   async postRender() {}
   async setTemplate() {
@@ -10,8 +11,9 @@ export class BaseComponent {
       this.template = await fetch(this.templatePath).then((response) => response.text());
     }
   }
-  async render() {
-    const renderingStageElement = document.createElement('div');
+  async render(componentName = 'custom-component', id) {
+    const renderingStageElement = document.createElement(componentName);
+    renderingStageElement.id = id || componentName;
     renderingStageElement.innerHTML = this.template;
     const components = renderingStageElement.querySelectorAll('[data-component]');
     Array.from(components).forEach(async (comp) => {
@@ -20,10 +22,11 @@ export class BaseComponent {
         // make sure component is valid
         component.setProps(comp.dataset);
         await component.setTemplate();
-        comp.replaceWith(await component.render());
-        await component.postRender();
+        comp.replaceWith(await component.render(comp.dataset.component, comp.id));
       }
     });
+    this.element = renderingStageElement;
+    this.postRender();
     return renderingStageElement;
   }
 }

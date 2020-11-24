@@ -1,4 +1,11 @@
-body {
-  font-family: 'Raleway', sans-serif;
-  font-size: 100%;
+@import './theme.css';
+@import './normalize.css';
+@import './utilities.css';
+@import './components/index.css';
+
+.root-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: rgb(255 239 159);
 }
