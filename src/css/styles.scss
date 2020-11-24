@@ -1,7 +1,7 @@
-@import './theme.css';
-@import './normalize.css';
-@import './utilities.css';
-@import './components/index.css';
+@import '_theme';
+@import '_normalize';
+@import '_utilities';
+@import 'components/_index';
 
 .root-wrapper {
   display: flex;

@@ -5,7 +5,7 @@
   "private": "true",
   "scripts": {
     "build": "cpx src/index.html dist && webpack --mode production",
-    "start:prod":"npm run build && web-dev-server --node-resolve --app-index index.html --root-dir dist --open",
+    "start:prod": "npm run build && web-dev-server --node-resolve --app-index index.html --root-dir dist --open",
     "start": "cpx src/index.html dist && webpack serve"
   },
   "repository": {
@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/dosanj/devknowledgestore#readme",
   "dependencies": {
+    "sass": "^1.29.0",
+    "sass-loader": "^10.1.0"
   },
   "devDependencies": {
     "cpx": "^1.5.0",
