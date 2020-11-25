@@ -5,6 +5,7 @@ module.exports = {
     main: './src/main.ts',
     styles: './src/css/styles.scss',
   },
+  devtool: 'eval-source-map',
   module: {
     rules: [
       {

@@ -1,11 +1,19 @@
+import { render, TemplateResult } from "lit-html";
+
 export class BaseComponent extends HTMLElement {
   template = ``;
   element = null;
+  props = {};
   rendered = false;
-  setProps() {}
+  litTemplate: (...args) => TemplateResult;
   async postRender() {}
   async render() {
-    this.innerHTML = await this.template;
+    if(this.litTemplate) {
+      render(this.litTemplate(this.props), this);
+    }
+    else {
+      this.innerHTML = await this.template;
+    }
     this.postRender();
   }
   async connectedCallback() {

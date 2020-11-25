@@ -1,6 +1,6 @@
 import { BaseComponent } from '../base.comp';
-import htmlTemplate from './container.template.html';
+import htmlTemplate from './container.template.html.js';
 
 export class ContainerComponent extends BaseComponent {
-  template = htmlTemplate;
+  litTemplate = htmlTemplate;
 }

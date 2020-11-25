@@ -1,11 +1,14 @@
 import { BaseComponent } from '../base.comp';
-import htmlTemplate from './navbar.template.html';
+import htmlTemplate from './navbar.template.html.js';
 
 
 export class NavbarComponent extends BaseComponent {
-  template = htmlTemplate;
+  props = {
+    appName: 'Test'
+  }
   constructor() {
     super();
+    this.litTemplate = htmlTemplate;
   }
   async postRender() {
   }
