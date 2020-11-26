@@ -1,4 +1,5 @@
 import { html } from 'lit-html';
+
 export default (props) => {
   return html`<div class="container-wrapper h-100">
     <div class="home-page-icon-wrapper">

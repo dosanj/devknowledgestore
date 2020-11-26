@@ -1,7 +1,14 @@
 import { BaseComponent } from '../base.comp';
-import htmlTemplate from './root.template.html.js';
-
+import htmlTemplate from './root-template.html';
 
 export class RootComponent extends BaseComponent {
-  litTemplate = htmlTemplate;  
+  template = htmlTemplate;
+  props = {
+    login: this.loginHandler.bind(this),
+    userLoggedIn: false,
+  };
+  loginHandler($event) {
+    this.props.userLoggedIn = true;
+    this.render();
+  }
 }

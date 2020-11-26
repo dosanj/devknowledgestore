@@ -1,6 +1,5 @@
 const path = require('path');
-
-module.exports = {
+const config = {
   entry: {
     main: './src/main.ts',
     styles: './src/css/styles.scss',
@@ -45,4 +44,10 @@ module.exports = {
     contentBase: './dist',
     compress: true,
   },
+};
+module.exports = (evn, argv) => {
+  if (argv.mode === 'production') {
+    delete config.devtool;
+  }
+  return config;
 };
