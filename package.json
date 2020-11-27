@@ -4,7 +4,7 @@
   "description": "Dev Knowledge Store",
   "private": "true",
   "scripts": {
-    "deploy": "npm run build && gh-pages -d dist",
+    "deploy": "npm run build && firebase deploy",
     "build": "cpx src/index.html dist && webpack --mode production",
     "start:prod": "npm run build && web-dev-server --node-resolve --app-index index.html --root-dir dist --open",
     "start": "cpx src/index.html dist && webpack serve"

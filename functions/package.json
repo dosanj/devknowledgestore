@@ -17,6 +17,9 @@
     "firebase-functions": "^3.11.0"
   },
   "devDependencies": {
+    "@types/eslint": "^7.2.5",
+    "@types/eslint-scope": "^3.7.0",
+    "@types/estree": "0.0.45",
     "typescript": "^3.8.0",
     "firebase-functions-test": "^0.2.0"
   },
