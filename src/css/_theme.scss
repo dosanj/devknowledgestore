@@ -1,7 +1,7 @@
 :root {
   /* Colors */
   --color-primary-rgb: 249, 84, 116;
-  --color-complimentry-rgb: 38, 217, 195;
+  --color-complimentry-rgb: 12, 95, 238;
 
   --color-primary: rgba(var(--color-primary-rgb));
   --color-complimentry: rgba(var(--color-complimentry-rgb));
@@ -14,9 +14,12 @@
   --bg-secondary: rgba(var(--text-secondary-rgb));
 
   /* Components */
-  --navbar-color: var(--color-complimentry);
   --homepage-text-color: #f5f5f5;
   --navbar-shadow-color: #f5f5f5;
 
   --btn-default-bg: #f5f5f5;
+  --btn-primary-color: #f5f5f5;
+  --btn-default-color: #000000;
+
+  --label-default-color: #f5f5f5;
 }

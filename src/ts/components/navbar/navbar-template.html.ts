@@ -5,7 +5,5 @@ export default (props) => html`<nav class="navbar" role="navigation" aria-label=
     <a class="navbar-app-name" href="/"> Link Store </a>
   </div>
 
-  <div class="navbar-end">
-    <button class="btn btn--primary" @click="${props.login}">Login</button>
-  </div>
+  <div class="navbar-end"></div>
 </nav>`;

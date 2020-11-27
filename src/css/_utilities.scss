@@ -308,84 +308,31 @@
 }
 
 /*********************
-  Media Query Classes
+  Media Query Mixins
 **********************/
-@media only screen and (max-width: 600px) {
-  .hide-on-small-only,
-  .hide-on-small-and-down {
-    display: none !important;
+@mixin for-phone-only {
+  @media (max-width: 599px) {
+    @content;
   }
 }
-
-@media only screen and (max-width: 992px) {
-  .hide-on-med-and-down {
-    display: none !important;
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) {
+    @content;
   }
 }
-
-@media only screen and (min-width: 601px) {
-  .hide-on-med-and-up {
-    display: none !important;
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) {
+    @content;
   }
 }
-
-@media only screen and (min-width: 600px) and (max-width: 992px) {
-  .hide-on-med-only {
-    display: none !important;
+@mixin for-desktop-up {
+  @media (min-width: 1200px) {
+    @content;
   }
 }
-
-@media only screen and (min-width: 993px) {
-  .hide-on-large-only {
-    display: none !important;
-  }
-}
-
-@media only screen and (min-width: 1201px) {
-  .hide-on-extra-large-only {
-    display: none !important;
-  }
-}
-
-@media only screen and (min-width: 1201px) {
-  .show-on-extra-large {
-    display: block !important;
-  }
-}
-
-@media only screen and (min-width: 993px) {
-  .show-on-large {
-    display: block !important;
-  }
-}
-
-@media only screen and (min-width: 600px) and (max-width: 992px) {
-  .show-on-medium {
-    display: block !important;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .show-on-small {
-    display: block !important;
-  }
-}
-
-@media only screen and (min-width: 601px) {
-  .show-on-medium-and-up {
-    display: block !important;
-  }
-}
-
-@media only screen and (max-width: 992px) {
-  .show-on-medium-and-down {
-    display: block !important;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .center-on-small-only {
-    text-align: center;
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) {
+    @content;
   }
 }
 
@@ -514,4 +461,8 @@ $hw: 0, 25, 50, 75, 100;
   .w-#{$d} {
     width: $d * 1% !important;
   }
+}
+//Positions
+.position-relative {
+  position: relative !important;
 }

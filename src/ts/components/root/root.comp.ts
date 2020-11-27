@@ -5,12 +5,7 @@ import htmlTemplate from './root-template.html';
 @customElement('app-root')
 export class RootComponent extends BaseComponent {
   template = htmlTemplate;
-  props = {
-    login: this.loginHandler.bind(this),
-    userLoggedIn: false,
-  };
-  loginHandler($event) {
-    this.props.userLoggedIn = true;
+  showLoginDialog($event) {
     this.render();
   }
 }

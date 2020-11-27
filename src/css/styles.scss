@@ -1,10 +1,12 @@
 @import '_theme';
-@import '_normalize';
 @import '_utilities';
+@import '_normalize';
 @import 'components/_index';
 
 .root-wrapper {
   height: 100vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
   background-color: #5ba786;
   color: var(--homepage-text-color);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23f95474' fill-opacity='0.55' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");

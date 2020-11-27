@@ -1,0 +1,33 @@
+.login-form-label {
+  font-size: 12px;
+  color: var(--label-default-color);
+  transition: all 0.2s ease-in-out;
+  pointer-events: none;
+  line-height: 1.5rem;
+}
+.login-form-textbox {
+  outline: 0;
+  transition: all 0.2s ease-in-out;
+}
+.login-divider {
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 1.5rem 0;
+  justify-content: space-between;
+  .divider-line {
+    border-top: 1px solid #edeff1;
+    width: 40%;
+  }
+  .divider-text {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    color: var(--label-default-color);
+    text-transform: uppercase;
+  }
+}
+.login-form {
+  width: 300px;
+}

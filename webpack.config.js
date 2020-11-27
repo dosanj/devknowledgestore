@@ -2,7 +2,9 @@ const path = require('path');
 const glob = require('glob');
 const config = {
   entry: {
-    main: glob.sync('./src/**/*.ts'),
+    main: glob.sync('./src/**/*.ts', {
+      ignore: './src/**/*.d.ts',
+    }),
     styles: './src/css/styles.scss',
   },
   devtool: 'eval-source-map',
