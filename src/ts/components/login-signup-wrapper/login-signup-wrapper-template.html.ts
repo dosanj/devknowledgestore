@@ -1,8 +1,7 @@
 import { html } from 'lit-html';
-import googleLogo from '../../../assets/google-color-logo.svg';
-export default (props) => html` <form class="login-form" method="post">
+export default ({ loginClicked }) => html` <div class="login-form">
   <button class="btn btn--primary flex w-100">
-    <img alt="Google Logo" width="24" height="24" src="${googleLogo}" />
+    <i class="google-login-icon"></i>
     <span class="ml-3">Continue with Google</span>
   </button>
   <div class="login-divider">
@@ -29,11 +28,11 @@ export default (props) => html` <form class="login-form" method="post">
   </fieldset>
 
   <fieldset class="mt-3">
-    <button class="btn btn--primary" type="submit">Log In</button>
+    <button class="btn btn--primary" @click=${loginClicked}>Log In</button>
   </fieldset>
 
   <div class="mt-3">
     New to Link Store?
     <a class="BottomLink" href="javascript:;">Sign up</a>
   </div>
-</form>`;
+</div>`;
