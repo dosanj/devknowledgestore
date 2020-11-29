@@ -1,6 +1,6 @@
 .login-form-label {
   font-size: 12px;
-  color: var(--label-default-color);
+  color: var(--color-label-default);
   transition: all 0.2s ease-in-out;
   pointer-events: none;
   line-height: 1.5rem;
@@ -24,7 +24,7 @@
     font-size: 14px;
     font-weight: 500;
     line-height: 18px;
-    color: var(--label-default-color);
+    color: var(--color-label-default);
     text-transform: uppercase;
   }
 }

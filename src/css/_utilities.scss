@@ -300,11 +300,11 @@
 }
 
 /*-- Color utilities --*/
-.color-primary {
-  color: var(--color-primary);
+.text-default {
+  color: var(--color-text-default) !important;
 }
 .bg-primary {
-  background-color: var(--bg-primary);
+  background-color: var(--color-primary) !important;
 }
 
 /*********************
@@ -465,4 +465,11 @@ $hw: 0, 25, 50, 75, 100;
 //Positions
 .position-relative {
   position: relative !important;
+}
+.position-absolute {
+  position: absolute !important;
+}
+
+.text-decoration-none {
+  text-decoration: none !important;
 }

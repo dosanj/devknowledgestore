@@ -1,14 +1,13 @@
 .btn {
-  background-color: var(--btn-default-bg);
+  background-color: var(--color-bg-btn);
   color: rgba(0, 0, 0, 0.7);
   display: inline-block;
   text-align: center;
   white-space: nowrap;
   cursor: pointer;
   font-weight: bold;
-  color: var(--btn-default-color);
+  color: var(--color-text-btn);
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
   box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
   &:hover {
     filter: brightness(92.5%);
@@ -16,7 +15,7 @@
   &.btn--primary {
     background-color: var(--color-primary);
     border-color: var(--color-primary);
-    color: var(--btn-primary-color);
+    color: var(--color-text-default);
     box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
   }
   &.btn--secondary {
@@ -27,5 +26,17 @@
   &:active,
   &:focus {
     outline: none;
+  }
+}
+
+.btn-floating {
+  display: flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    filter: brightness(90%);
   }
 }

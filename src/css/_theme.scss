@@ -5,21 +5,13 @@
 
   --color-primary: rgba(var(--color-primary-rgb));
   --color-complimentry: rgba(var(--color-complimentry-rgb));
-  --text-default-rbg: 0, 0, 0;
-  --bg-default-rbg: 255, 249, 221;
-  --text-default: rgba(var(--text-default-rbg));
-  --bg-default: rgba(var(--bg-default-rbg));
-  --text-secondary-rgb: 125, 124, 131;
-  --text-secondary: rgba(var(--text-secondary-rgb));
-  --bg-secondary: rgba(var(--text-secondary-rgb));
 
   /* Components */
-  --homepage-text-color: #f5f5f5;
+  --color-text-default: #f5f5f5;
   --navbar-shadow-color: #f5f5f5;
 
-  --btn-default-bg: #f5f5f5;
-  --btn-primary-color: #f5f5f5;
-  --btn-default-color: #000000;
+  --color-bg-btn: #f5f5f5;
+  --color-text-btn: #000000;
 
-  --label-default-color: #f5f5f5;
+  --color-label-default: #f5f5f5;
 }

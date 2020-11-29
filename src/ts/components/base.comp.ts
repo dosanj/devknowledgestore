@@ -18,7 +18,7 @@ export class BaseComponent extends HTMLElement {
     console.log('test');
   }
 
-  dispatchCustomEvent(eventName, eventObject = null) {
+  dispatchCustomEvent(eventName: string, eventObject = null) {
     this.dispatchEvent(new CustomEvent(eventName, { detail: eventObject }));
   }
 }
