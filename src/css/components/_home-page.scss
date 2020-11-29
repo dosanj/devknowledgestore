@@ -5,3 +5,19 @@
     background-color: var(--color-primary);
   }
 }
+.links-wrapper {
+  display: flex;
+  @include for-phone-only() {
+    flex-direction: column;
+  }
+  .link-item {
+    width: 250px;
+    height: 250px;
+    justify-content: center;
+    background: #5bc586;
+    align-items: center;
+    @include for-phone-only() {
+      width: auto;
+    }
+  }
+}
