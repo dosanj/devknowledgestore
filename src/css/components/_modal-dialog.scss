@@ -7,13 +7,15 @@
   left: 0;
   background: rgba(0, 0, 0, 0.5);
   z-index: 99999;
-  opacity: 0;
   pointer-events: none;
+  transition: opacity 100ms ease-in;
   display: flex;
+  visibility: hidden;
+  opacity: 0;
 }
 .modal-dialog:target {
-  transition: opacity 400ms ease-in;
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
 }
 .modal-dialog > .modal-content {
