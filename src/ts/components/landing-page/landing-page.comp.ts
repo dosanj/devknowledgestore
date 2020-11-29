@@ -5,13 +5,13 @@ import htmlTemplate from './landing-page-template.html';
 @customElement('app-landing-page')
 export class LandingPageComponent extends BaseComponent {
   template = htmlTemplate;
-  loginClicked = (event: CustomEventInit) => {
-    this.setLoggedInUser();
+  userLoggedIn = ({ detail }: CustomEventInit) => {
+    this.setLoggedInUser(detail.user);
   };
 
-  setLoggedInUser = () => {
+  setLoggedInUser = (loggedInUser) => {
     this.dispatchCustomEvent('setLoggedInUser', {
-      loggedInUser: { email: 'javeddosani2011@gmail.com', name: 'Javed Dosani' },
+      loggedInUser,
     });
   };
   async connectedCallback() {
