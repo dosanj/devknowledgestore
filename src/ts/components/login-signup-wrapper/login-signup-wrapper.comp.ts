@@ -1,3 +1,4 @@
+import { helloWorld } from '../../../../functions/src';
 import { IUser } from '../../models/user';
 import { customElement } from '../../utilities/custom-element';
 import { BaseComponent } from '../base.comp';

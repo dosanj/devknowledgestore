@@ -14,7 +14,7 @@ export default ({ linkSaved, links, openSaveLinkDialog }) => html`
       </div>
     </div>
     <div class="items-wrapper">
-      ${links.map((link) => {
+      ${links.map(({ link }) => {
         return html`<div class="item flex mb-3"><div>${link}</div></div>`;
       })}
     </div>
