@@ -10,4 +10,7 @@ export class HomePageComponent extends BaseComponent {
     this.links.unshift(link);
     this.render();
   };
+  openSaveLinkDialog = () => {
+    window.location.hash = 'save-link';
+  };
 }

@@ -1,13 +1,21 @@
 import { html } from 'lit-html';
 
-export default ({ linkSaved, links }) => html`
-  <div class="home-page-wrapper">
-    <div class="add-item-wrapper position-absolute">
-      <a class="btn btn-floating bg-primary" href="#save-link"> <i class="fa fa-plus m-auto text-default"></i> </a>
+export default ({ linkSaved, links, openSaveLinkDialog }) => html`
+  <div class="home-page-wrapper flex flex-column m-3">
+    <div class="items-searcher-wrapper mb-3">
+      <div class="item-searcher position-relative ">
+        <input placeholder="Search Links..." class="w-100" />
+        <i class="fa fa-search position-absolute"></i>
+      </div>
+      <div class="add-item-wrapper">
+        <button class="btn btn--primary add-button" @click=${openSaveLinkDialog}>
+          <i class="fa fa-plus m-auto text-default"></i><span> Add </span>
+        </button>
+      </div>
     </div>
-    <div class="links-wrapper">
+    <div class="items-wrapper">
       ${links.map((link) => {
-        return html`<div class="link-item flex m-3"><div>${link}</div></div>`;
+        return html`<div class="item flex mb-3"><div>${link}</div></div>`;
       })}
     </div>
   </div>

@@ -5,7 +5,9 @@ import htmlTemplate from './landing-page-template.html';
 @customElement('app-landing-page')
 export class LandingPageComponent extends BaseComponent {
   template = htmlTemplate;
-  loginClicked = (event: CustomEventInit) => {};
+  loginClicked = (event: CustomEventInit) => {
+    this.setLoggedInUser();
+  };
 
   setLoggedInUser = () => {
     this.dispatchCustomEvent('setLoggedInUser', {
@@ -14,6 +16,6 @@ export class LandingPageComponent extends BaseComponent {
   };
   async connectedCallback() {
     super.connectedCallback();
-    this.setLoggedInUser();
+    //this.setLoggedInUser();
   }
 }

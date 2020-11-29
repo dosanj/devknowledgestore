@@ -1,16 +1,35 @@
 .add-item-wrapper {
-  bottom: 8%;
-  right: 8%;
+  @include for-phone-only() {
+    bottom: 8%;
+    right: 8%;
+    position: fixed;
+    margin: 0;
+  }
+  margin-left: 1rem;
+  .add-button {
+    @include for-phone-only() {
+      border-radius: 50%;
+      width: 3rem;
+      height: 3rem;
+    }
+    span {
+      @include for-phone-only() {
+        display: none;
+      }
+    }
+  }
   .add-item {
     background-color: var(--color-primary);
   }
 }
-.links-wrapper {
+.items-wrapper {
   display: flex;
+  margin: -1rem;
   @include for-phone-only() {
     flex-direction: column;
   }
-  .link-item {
+  .item {
+    margin: 1rem;
     width: 250px;
     height: 250px;
     justify-content: center;
@@ -18,6 +37,23 @@
     align-items: center;
     @include for-phone-only() {
       width: auto;
+    }
+  }
+}
+.items-searcher-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .item-searcher {
+    flex-basis: 500px;
+    @include for-phone-only() {
+      flex: 1;
+    }
+    .fa-search {
+      right: 1rem;
+      font-size: 1rem;
+      color: rgba(0, 0, 0, 0.5);
+      top: calc(50% - 0.5rem);
     }
   }
 }
