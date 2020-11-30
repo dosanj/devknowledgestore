@@ -1,4 +1,4 @@
-import { IUser } from '../../models/user';
+import { IUser } from '../../../models';
 import { customElement } from '../../utilities/custom-element';
 import { BaseComponent } from '../base.comp';
 import htmlTemplate from './navbar-template.html';

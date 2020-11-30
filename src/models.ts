@@ -3,3 +3,7 @@ export interface IUser {
   email: string;
   emailVerified: boolean;
 }
+export interface ISavedLink {
+  link: string;
+  url?: string;
+}

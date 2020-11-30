@@ -1,17 +1,38 @@
 //
 import * as functions from 'firebase-functions';
+import { getLinkPreview } from 'link-preview-js';
 import { getFireStoreDB } from './firestore';
 const db = getFireStoreDB();
 
 export const saveLink = functions.https.onCall(async (data, context) => {
   // Grab the text parameter.
   const link = data.link;
+
+  if (!link) {
+    functions.logger.error('No Link Provided for saving');
+    return null;
+  }
   const uid = context?.auth?.uid;
   const name = context?.auth?.token?.name;
   const picture = context?.auth?.token?.picture;
   const email = context?.auth?.token.email;
+  const linkPreviewData = await linkPreview(link);
+  const updatedLinkData = { link, email, uid, ...linkPreviewData };
+  await db.collection('links').add(updatedLinkData);
   // Push the new message into Cloud Firestore using the Firebase Admin SDK.
-  await db.collection('links').add({ link, email, uid });
   // Send back a message that we've succesfully written the message
-  return { link, email, uid };
+  return updatedLinkData;
 });
+
+async function linkPreview(link: string) {
+  if (!link.startsWith('http://') && !link.startsWith('https://')) {
+    link = `http://${link}`;
+  }
+  let response = null;
+  try {
+    response = await getLinkPreview(link);
+  } catch (e) {
+    functions.logger.error(e);
+  }
+  return response;
+}
