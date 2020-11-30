@@ -2,3 +2,4 @@ node_modules/
 dist/
 firebase-debug.log
 ui-debug.log
+firestore-debug.log

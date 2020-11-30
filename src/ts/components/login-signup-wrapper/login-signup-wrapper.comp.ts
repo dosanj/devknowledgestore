@@ -11,13 +11,6 @@ export class LoginSignUpWrapper extends BaseComponent {
   loginClicked = ($event) => {};
   signInWithGoogle = async () => {
     const provider = new firebase.auth.GoogleAuthProvider();
-    firebase
-      .auth()
-      .signInWithPopup(provider)
-      .then(async (result: any) => {
-        this.user = firebase.auth().currentUser;
-        this.dispatchCustomEvent('userLoggedIn', { user: this.user });
-      })
-      .catch(console.log);
+    firebase.auth().signInWithPopup(provider).catch(console.log);
   };
 }

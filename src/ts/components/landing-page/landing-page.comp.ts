@@ -5,9 +5,6 @@ import htmlTemplate from './landing-page-template.html';
 @customElement('app-landing-page')
 export class LandingPageComponent extends BaseComponent {
   template = htmlTemplate;
-  userLoggedIn = ({ detail }: CustomEventInit) => {
-    this.setLoggedInUser(detail.user);
-  };
 
   setLoggedInUser = (loggedInUser) => {
     this.dispatchCustomEvent('setLoggedInUser', {
@@ -15,7 +12,15 @@ export class LandingPageComponent extends BaseComponent {
     });
   };
   async connectedCallback() {
-    super.connectedCallback();
-    //this.setLoggedInUser();
+    firebase.auth().onAuthStateChanged((user) => {
+      //Login Listener
+      if (user) {
+        this.setLoggedInUser(user);
+        // User is signed in.
+      } else {
+        super.connectedCallback();
+        // No user is signed in.
+      }
+    });
   }
 }
