@@ -24,6 +24,7 @@
 }
 .items-wrapper {
   display: flex;
+  flex-wrap: wrap;
   margin: -1rem;
   @include for-phone-only() {
     flex-direction: column;

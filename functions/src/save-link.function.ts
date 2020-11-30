@@ -16,17 +16,17 @@ export const saveLink = functions.https.onCall(async (data, context) => {
   const name = context?.auth?.token?.name;
   const picture = context?.auth?.token?.picture;
   const email = context?.auth?.token.email;
-  const { description, images, url, title, siteName } = await linkPreview(link);
-  const updatedLinkData = {
+  const linkPreviewData = await linkPreview(link);
+  let updatedLinkData: any = {
     link,
+    email,
     uid,
-    description,
-    image: images?.[0],
-    url,
-    title,
-    siteName,
   };
-  await db.collection('users').doc(email).collection('links').add(updatedLinkData);
+  if (linkPreviewData) {
+    const { description, images, url, title, siteName } = linkPreviewData;
+    updatedLinkData = { ...updatedLinkData, description, images: images?.[0], url, title, siteName };
+  }
+  await db.collection('links').add(updatedLinkData);
   // Push the new message into Cloud Firestore using the Firebase Admin SDK.
   // Send back a message that we've succesfully written the message
   return updatedLinkData;
