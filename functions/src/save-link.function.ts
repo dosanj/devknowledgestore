@@ -16,9 +16,17 @@ export const saveLink = functions.https.onCall(async (data, context) => {
   const name = context?.auth?.token?.name;
   const picture = context?.auth?.token?.picture;
   const email = context?.auth?.token.email;
-  const linkPreviewData = await linkPreview(link);
-  const updatedLinkData = { link, email, uid, ...linkPreviewData };
-  await db.collection('links').add(updatedLinkData);
+  const { description, images, url, title, siteName } = await linkPreview(link);
+  const updatedLinkData = {
+    link,
+    uid,
+    description,
+    image: images?.[0],
+    url,
+    title,
+    siteName,
+  };
+  await db.collection('users').doc(email).collection('links').add(updatedLinkData);
   // Push the new message into Cloud Firestore using the Firebase Admin SDK.
   // Send back a message that we've succesfully written the message
   return updatedLinkData;
@@ -34,5 +42,5 @@ async function linkPreview(link: string) {
   } catch (e) {
     functions.logger.error(e);
   }
-  return response;
+  return (response as unknown) as { description: string; images: string; url: string; title: string; siteName: string };
 }
