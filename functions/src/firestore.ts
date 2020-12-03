@@ -4,6 +4,9 @@ export function getFireStoreDB() {
   if (!db) {
     admin.initializeApp();
     db = admin.firestore();
+    db.settings({
+      ignoreUndefinedProperties: true,
+    });
   }
   return db;
 }
