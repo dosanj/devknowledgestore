@@ -14,7 +14,7 @@ export class SaveLinkModalComponent extends BaseComponent {
   saveLink = () => {
     const isValid = this.validateUrl(this.link);
     if (this.link && isValid) {
-      this.dispatchCustomEvent('savedLink', { link: this.link });
+      this.dispatchCustomEvent('savedLink', { url: this.link });
       this.closeDialog();
     } else {
       this.displayError = 'Please Enter Valid Url';

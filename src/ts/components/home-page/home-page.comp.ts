@@ -7,12 +7,12 @@ export class HomePageComponent extends BaseComponent {
   template = htmlTemplate;
   links: ISavedLink[] = [];
   linkSaved = ({ detail }: CustomEventInit) => {
-    const { link } = detail;
+    const { url } = detail;
     this.links.unshift({
-      link,
+      url,
     });
     this.render();
-    this.saveLink(link);
+    this.saveLink(url);
   };
   openSaveLinkDialog = () => {
     window.location.hash = 'save-link';
@@ -28,7 +28,7 @@ export class HomePageComponent extends BaseComponent {
     const { data }: { data: ISavedLink } = await saveLink({ link });
     this.links = [
       ...this.links.map((l) => {
-        if (l.link === link) {
+        if (l.url === link) {
           return data;
         }
         return l;

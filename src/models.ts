@@ -4,11 +4,11 @@ export interface IUser {
   emailVerified: boolean;
 }
 export interface ISavedLink {
-  link: string;
+  link?: string;
   uid?: string;
   description?: string;
   image?: string;
-  url?: string;
+  url: string;
   title?: string;
   siteName?: string;
 }

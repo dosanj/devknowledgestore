@@ -14,11 +14,9 @@ export default ({ linkSaved, links, openSaveLinkDialog }) => html`
       </div>
     </div>
     <div class="items-wrapper">
-      ${links.map(({ link, url }) => {
-        if (url) {
-          link = url;
-        }
-        return html`<div class="item flex mb-3"><div>${link}</div></div>`;
+      ${links.map((linkItem) => {
+        console.log(linkItem, links);
+        return html`<app-link-item class="item flex mb-3 flex-column" .linkItem=${linkItem}></app-link-item>`;
       })}
     </div>
   </div>

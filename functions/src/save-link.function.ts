@@ -24,7 +24,7 @@ export const saveLink = functions.https.onCall(async (data, context) => {
   };
   if (linkPreviewData) {
     const { description, images, url, title, siteName } = linkPreviewData;
-    updatedLinkData = { ...updatedLinkData, description, images: images?.[0], url, title, siteName };
+    updatedLinkData = { ...updatedLinkData, description, image: images?.[0], url, title, siteName };
   }
   await db.collection('links').add(updatedLinkData);
   // Push the new message into Cloud Firestore using the Firebase Admin SDK.
@@ -38,7 +38,7 @@ async function linkPreview(link: string) {
   }
   let response = null;
   try {
-    response = await getLinkPreview(link);
+    response = await getLinkPreview(link, { headers: { 'user-agent': 'googlebot', 'Accept-Language': 'en-US' } });
   } catch (e) {
     functions.logger.error(e);
   }

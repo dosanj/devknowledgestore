@@ -31,7 +31,7 @@
       "enabled": true
     },
     "firestore": {
-      "port": 5002
+      "port": 5003  
     }
   }
 }
