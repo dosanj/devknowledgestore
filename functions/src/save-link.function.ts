@@ -26,7 +26,7 @@ export const saveLink = functions.https.onCall(async (data, context) => {
     const { description, images, url, title, siteName } = linkPreviewData;
     updatedLinkData = { ...updatedLinkData, description, image: images?.[0], url, title, siteName };
   }
-  await db.collection('links').add(updatedLinkData);
+  await db.collection('users').doc(email).collection('links').add(updatedLinkData);
   // Push the new message into Cloud Firestore using the Firebase Admin SDK.
   // Send back a message that we've succesfully written the message
   return updatedLinkData;
