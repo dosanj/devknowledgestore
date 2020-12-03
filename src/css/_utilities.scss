@@ -399,25 +399,6 @@
   align-items: stretch !important;
 }
 
-.flex-content-start {
-  align-content: flex-start !important;
-}
-.flex-content-end {
-  align-content: flex-end !important;
-}
-.flex-content-center {
-  align-content: center !important;
-}
-.flex-content-between {
-  align-content: space-between !important;
-}
-.flex-content-around {
-  align-content: space-around !important;
-}
-.flex-content-stretch {
-  align-content: stretch !important;
-}
-
 // Item
 $sizes: 1, 2, 3, 4, 5, 6, 7, 8;
 
@@ -425,15 +406,6 @@ $sizes: 1, 2, 3, 4, 5, 6, 7, 8;
   .flex-#{$size} {
     flex: $size;
   }
-}
-.flex-auto {
-  flex: auto !important;
-}
-.flex-grow-0 {
-  flex-grow: 0 !important;
-}
-.flex-shrink-0 {
-  flex-shrink: 0 !important;
 }
 
 .flex-self-auto {
@@ -475,4 +447,7 @@ $hw: 0, 25, 50, 75, 100;
 
 .text-decoration-none {
   text-decoration: none !important;
+}
+.clickable {
+  cursor: pointer !important;
 }

@@ -1,3 +1,4 @@
+import { deleteLink } from '../../../../functions/src';
 import { ISavedLink } from '../../../models';
 import { customElement } from '../../utilities/custom-element';
 import { BaseComponent } from '../base.comp';
@@ -35,5 +36,13 @@ export class HomePageComponent extends BaseComponent {
       }),
     ];
     this.render();
+  };
+
+  deleteLinkItem = async ({ detail }: CustomEventInit) => {
+    const link = detail?.link;
+    this.links = this.links.filter((l) => l.link !== link);
+    this.render();
+    const deleteLink = firebase.functions().httpsCallable('deleteLink');
+    await deleteLink({ link });
   };
 }

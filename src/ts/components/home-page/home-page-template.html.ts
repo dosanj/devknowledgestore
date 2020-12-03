@@ -1,6 +1,6 @@
 import { html } from 'lit-html';
 
-export default ({ linkSaved, links, openSaveLinkDialog }) => html`
+export default ({ linkSaved, links, openSaveLinkDialog, deleteLinkItem }) => html`
   <div class="home-page-wrapper flex flex-column m-3">
     <div class="items-searcher-wrapper mb-3">
       <div class="item-searcher position-relative ">
@@ -16,7 +16,7 @@ export default ({ linkSaved, links, openSaveLinkDialog }) => html`
     <div class="items-wrapper">
       ${links.map((linkItem) => {
         console.log(linkItem, links);
-        return html`<app-link-item class="item flex mb-3 flex-column" .linkItem=${linkItem}></app-link-item>`;
+        return html`<app-link-item .linkItem=${linkItem} @deleteLinkItem=${deleteLinkItem}></app-link-item>`;
       })}
     </div>
   </div>

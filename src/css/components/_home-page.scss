@@ -29,20 +29,6 @@
   @include for-phone-only() {
     flex-direction: column;
   }
-  .item {
-    margin: 1rem;
-    padding: 1rem;
-    min-width: 250px;
-    min-height: 250px;
-    justify-content: center;
-    background: white;
-    align-items: center;
-    color: rgb(0, 0, 0, 0.5);
-    border-radius: 4px;
-    @include for-phone-only() {
-      width: auto;
-    }
-  }
 }
 .items-searcher-wrapper {
   display: flex;
