@@ -14,6 +14,15 @@
   a {
     text-decoration: none;
   }
+  .link-image {
+    height: 150px;
+    width: 150px;
+    background-color: #5ba78666;
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
   .item-actions {
     top: 0;
     right: 0;

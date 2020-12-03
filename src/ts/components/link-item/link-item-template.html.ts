@@ -13,9 +13,9 @@ export default ({ linkItem, toggleActionsPopup, showActionsPopup, deleteLinkItem
           </div>`
         : null}
     </div>
-    <a aria-label="${linkItem?.title}" href="${linkItem?.url}" target="_blank">
-      <img src="${linkItem?.image}" height="150" width="150"
-    /></a>
+    <a aria-label="${linkItem?.title}" href="${linkItem?.url}" target="_blank" class="link-image">
+      ${linkItem.image ? html`<img src="${linkItem.image}" />` : null}
+    </a>
     <div class="link-details flex flex-column">
       <a aria-label="${linkItem?.title}" href="${linkItem?.url}" target="_blank" class="link-site-title mb-2">
         ${linkItem?.title ? linkItem.title : linkItem?.url}
