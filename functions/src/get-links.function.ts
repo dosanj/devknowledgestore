@@ -7,7 +7,8 @@ export const getAllLinks = functions.https.onCall(async (data, context) => {
   const snapshot = await db.collection('users').doc(email).collection('links').get();
   const documents: any[] = [];
   snapshot.forEach((doc: any) => {
-    documents.push(doc.data());
+    const { description, image, link, siteName, title, url } = doc.data();
+    documents.push({ description, image, link, siteName, title, url });
+    return documents;
   });
-  return documents;
 });
