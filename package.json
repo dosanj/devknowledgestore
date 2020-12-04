@@ -4,7 +4,7 @@
   "description": "Dev Knowledge Store",
   "private": "true",
   "scripts": {
-    "setup":"(cd api && npm install);(npm install)",
+    "setup":"(cd functions && npm install);(npm install)",
     "deploy": "npm run build && firebase deploy",
     "build": "cpx src/index.html dist && webpack --mode production",
     "start:prod": "npm run build && web-dev-server --node-resolve --app-index index.html --root-dir dist --open",

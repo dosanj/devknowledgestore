@@ -10,7 +10,6 @@ export class LinkItemComponent extends BaseComponent {
   private _linkItem: ISavedLink = null;
   set linkItem(value: ISavedLink) {
     this._linkItem = value;
-    console.log(value);
     this.render();
   }
   get linkItem() {
