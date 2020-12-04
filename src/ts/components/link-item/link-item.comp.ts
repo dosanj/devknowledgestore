@@ -23,5 +23,6 @@ export class LinkItemComponent extends BaseComponent {
   };
   deleteLinkItem = () => {
     this.dispatchCustomEvent('deleteLinkItem', { link: this.linkItem.link });
+    this.toggleActionsPopup();
   };
 }

@@ -37,6 +37,10 @@
     }
   }
   .link-site-title {
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
     color: var(--color-primary);
   }
   .link-site {
@@ -44,7 +48,6 @@
   }
   .link-site-description {
     overflow: hidden;
-    text-overflow: ellipsis;
     -webkit-line-clamp: 2;
     display: -webkit-box;
     -webkit-box-orient: vertical;
