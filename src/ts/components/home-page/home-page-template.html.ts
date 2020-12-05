@@ -1,10 +1,10 @@
 import { html } from 'lit-html';
 
-export default ({ linkSaved, links, openSaveLinkDialog, deleteLinkItem }) => html`
+export default ({ linkSaved, links, openSaveLinkDialog, deleteLinkItem, searchInput }) => html`
   <div class="home-page-wrapper flex flex-column m-3">
     <div class="items-searcher-wrapper mb-3">
       <div class="item-searcher position-relative ">
-        <input placeholder="Search Links..." class="w-100" />
+        <input placeholder="Search Links..." class="w-100" @input=${searchInput} />
         <i class="fa fa-search position-absolute"></i>
       </div>
       <div class="add-item-wrapper">
