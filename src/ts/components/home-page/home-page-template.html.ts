@@ -15,7 +15,6 @@ export default ({ linkSaved, links, openSaveLinkDialog, deleteLinkItem }) => htm
     </div>
     <div class="items-wrapper">
       ${links.map((linkItem) => {
-        console.log(linkItem, links);
         return html`<app-link-item .linkItem=${linkItem} @deleteLinkItem=${deleteLinkItem}></app-link-item>`;
       })}
     </div>

@@ -1,4 +1,5 @@
 import { IUser } from '../../../models';
+import { hideLoader, showLoader } from '../../services/loader.service';
 import { customElement } from '../../utilities/custom-element';
 import { BaseComponent } from '../base.comp';
 import htmlTemplate from './navbar-template.html';
@@ -13,4 +14,16 @@ export class NavbarComponent extends BaseComponent {
   get loggedInUser() {
     return this._loggedInUser;
   }
+  logOut = () => {
+    showLoader();
+    firebase
+      .auth()
+      .signOut()
+      .then(function () {
+        hideLoader();
+      })
+      .catch(function (error) {
+        hideLoader();
+      });
+  };
 }

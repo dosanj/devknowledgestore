@@ -1,5 +1,6 @@
-import { deleteLink } from '../../../../functions/src';
 import { ISavedLink } from '../../../models';
+import { LinksApiService } from '../../services/links-api.service';
+import { hideLoader, showLoader } from '../../services/loader.service';
 import { customElement } from '../../utilities/custom-element';
 import { BaseComponent } from '../base.comp';
 import htmlTemplate from './home-page-template.html';
@@ -7,26 +8,30 @@ import htmlTemplate from './home-page-template.html';
 export class HomePageComponent extends BaseComponent {
   template = htmlTemplate;
   links: ISavedLink[] = [];
+  linksApiService = LinksApiService.getInstance();
   linkSaved = ({ detail }: CustomEventInit) => {
     const { url } = detail;
+    const timestamp = Date.now();
     this.links.unshift({
       url,
+      timestamp,
     });
     this.render();
-    this.saveLink(url);
+    this.saveLink({ link: url, timestamp });
   };
   openSaveLinkDialog = () => {
     window.location.hash = 'save-link';
   };
   async connectedCallback() {
     super.connectedCallback();
-    const { data } = await firebase.functions().httpsCallable('getAllLinks')();
+    showLoader();
+    const { data } = await this.linksApiService.getAllLinks();
     this.links = data;
+    hideLoader();
     this.render();
   }
-  saveLink = async (link) => {
-    const saveLink = firebase.functions().httpsCallable('saveLink');
-    const { data }: { data: ISavedLink } = await saveLink({ link });
+  saveLink = async ({ link, timestamp }) => {
+    const { data }: { data: ISavedLink } = await this.linksApiService.saveLink({ link, timestamp });
     this.links = [
       ...this.links.map((l) => {
         if (l.url === link) {
@@ -42,7 +47,6 @@ export class HomePageComponent extends BaseComponent {
     const link = detail?.link;
     this.links = this.links.filter((l) => l.link !== link);
     this.render();
-    const deleteLink = firebase.functions().httpsCallable('deleteLink');
-    await deleteLink({ link });
+    await this.linksApiService.deleteLink(link);
   };
 }

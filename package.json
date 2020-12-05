@@ -8,7 +8,8 @@
     "deploy": "npm run build && firebase deploy",
     "build": "cpx src/index.html dist && webpack --mode production",
     "start:prod": "npm run build && web-dev-server --node-resolve --app-index index.html --root-dir dist --open",
-    "start": "cpx src/index.html dist && webpack serve"
+    "start": "cpx src/index.html dist && webpack serve",
+    "start:functions":"cd functions && tsc && firebase emulators:start"
   },
   "repository": {
     "type": "git",

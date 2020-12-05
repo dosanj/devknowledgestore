@@ -16,14 +16,18 @@ export default ({ linkItem, toggleActionsPopup, showActionsPopup, deleteLinkItem
     <a aria-label="${linkItem?.title}" href="${linkItem?.url}" target="_blank" class="link-image">
       ${linkItem.image ? html`<img src="${linkItem.image}" />` : null}
     </a>
-    <div class="link-details flex flex-column">
+    <div class="link-details flex flex-column mt-1">
       <a aria-label="${linkItem?.title}" href="${linkItem?.url}" target="_blank" class="link-site-title mb-2">
         ${linkItem?.title ? linkItem.title : linkItem?.url}
       </a>
       <a href="${linkItem?.url}" target="_blank" class="mb-2">
         <cite class="link-site">${linkItem?.siteName}</cite>
       </a>
-      <div class="link-site-description">${linkItem?.description}</div>
+      <div class="link-site-description mb-2">${linkItem?.description}</div>
+      <div class="link-site-timestamp flex flex-items-center">
+        <i class="fa fa-calendar mr-3"></i>
+        ${new Date(linkItem?.timestamp).toDateString()}
+      </div>
     </div>
   </div>
 `;

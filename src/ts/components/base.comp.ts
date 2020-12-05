@@ -14,9 +14,7 @@ export class BaseComponent extends HTMLElement {
   attributeChangedCallback(name, oldValue, newValue) {
     this.render();
   }
-  async disconnectedCallback() {
-    console.log('test');
-  }
+  async disconnectedCallback() {}
 
   dispatchCustomEvent(eventName: string, eventObject = null) {
     this.dispatchEvent(new CustomEvent(eventName, { detail: eventObject }));

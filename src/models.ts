@@ -11,4 +11,5 @@ export interface ISavedLink {
   url: string;
   title?: string;
   siteName?: string;
+  timestamp?: number;
 }

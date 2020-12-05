@@ -7,9 +7,24 @@ import htmlTemplate from './root-template.html';
 export class RootComponent extends BaseComponent {
   template = htmlTemplate;
   loggedInUser: IUser = null;
-  setLoggedInUser = ($event: CustomEventInit) => {
-    this.loggedInUser = $event.detail.loggedInUser;
-    console.log(this.loggedInUser);
+  toggleLoggedInUser = (user) => {
+    this.loggedInUser = user;
     this.render();
   };
+  async connectedCallback() {
+    try {
+      firebase.auth().onAuthStateChanged((user) => {
+        // Listen to User authentication
+        //Login Listener
+        if (user) {
+          this.toggleLoggedInUser(user);
+          // User is signed in.
+        } else {
+          this.toggleLoggedInUser(null);
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
