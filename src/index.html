@@ -20,14 +20,26 @@
       ><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     /></noscript>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="/__/firebase/8.1.1/firebase-app.js" defer></script>
-    <script src="/__/firebase/8.1.1/firebase-auth.js" defer></script>
-    <script src="/__/firebase/8.1.1/firebase-functions.js" defer></script>
-    <script src="/__/firebase/init.js" defer></script>
-    <!-- <script src="http://localhost:5000/__/firebase/8.1.1/firebase-app.js" defer></script>
-    <script src="http://localhost:5000/__/firebase/8.1.1/firebase-auth.js" defer></script>
-    <script src="http://localhost:5000/__/firebase/8.1.1/firebase-functions.js" defer></script>
-    <script src="http://localhost:5000/__/firebase/init.js?useEmulator=true" defer></script> -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-functions.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: 'AIzaSyDm6l_6bKOATSnzFk7QqnbAHigghdW8jDQ',
+        authDomain: 'linkstore-821d8.firebaseapp.com',
+        databaseURL: 'https://linkstore-821d8.firebaseio.com',
+        projectId: 'linkstore-821d8',
+        storageBucket: 'linkstore-821d8.appspot.com',
+        messagingSenderId: '305847795927',
+        appId: '1:305847795927:web:49abcaf17b15824c94b092',
+        measurementId: 'G-0QFP9C4JF0',
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
     <script src="./styles.js"></script>
     <script src="./main.js" defer></script>
   </head>
