@@ -6,9 +6,9 @@
   "scripts": {
     "setup": "(cd functions && npm install);(npm install)",
     "deploy": "npm run build && firebase deploy",
-    "build": "cpx src/index.html dist && webpack --mode production",
-    "start:prod": "npm run build && web-dev-server --node-resolve --app-index index.html --root-dir dist --open",
-    "start": "cpx src/index.html dist && webpack serve",
+    "build": "cpx src/index.html public && webpack --mode production",
+    "start:prod": "npm run build && web-dev-server --node-resolve --app-index index.html --root-dir public --open",
+    "start": "cpx src/index.html public && webpack serve",
     "start:functions": "cd functions && tsc && firebase emulators:start"
   },
   "repository": {
@@ -22,16 +22,22 @@
   },
   "homepage": "https://github.com/dosanj/linkstore#readme",
   "dependencies": {
+    "@vercel/node": "^1.10.0",
     "fuzzy": "^0.1.3",
-    "lit-html": "^1.3.0"
+    "link-preview-js": "^2.1.6",
+    "lit-html": "^1.3.0",
+    "firebase-admin": "^9.4.1",
+    "firebase-functions": "^3.11.0"
   },
   "devDependencies": {
-    "sass-loader": "^10.1.0",
-    "sass": "^1.29.0",
+    "@firebase/auth-types": "^0.10.3",
+    "@firebase/firestore-types": "^2.2.0",
     "@web/dev-server": "0.0.24",
     "cpx": "^1.5.0",
     "css-loader": "^5.0.1",
     "raw-loader": "^4.0.2",
+    "sass": "^1.29.0",
+    "sass-loader": "^10.1.0",
     "style-loader": "^2.0.0",
     "ts-loader": "^8.0.11",
     "typescript": "^4.1.2",

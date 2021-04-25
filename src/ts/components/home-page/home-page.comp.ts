@@ -1,4 +1,4 @@
-import { ISavedLink } from '../../../models';
+import { ISavedLink, IUser } from '../../../models';
 import { LinksApiService } from '../../services/links-api.service';
 import { hideLoader, showLoader } from '../../services/loader.service';
 import { customElement } from '../../utilities/custom-element';
@@ -10,6 +10,14 @@ export class HomePageComponent extends BaseComponent {
   template = htmlTemplate;
   links: ISavedLink[] = [];
   orignal: ISavedLink[] = [];
+  _loggedInUser: IUser = null;
+  set loggedInUser(user: IUser) {
+    this._loggedInUser = user;
+    this.render();
+  }
+  get loggedInUser() {
+    return this._loggedInUser;
+  }
   linksApiService = LinksApiService.getInstance();
   linkSaved = ({ detail }: CustomEventInit) => {
     const { url } = detail;
@@ -46,12 +54,16 @@ export class HomePageComponent extends BaseComponent {
   async connectedCallback() {
     super.connectedCallback();
     showLoader();
-    const { data } = await this.linksApiService.getAllLinks();
+    const data = await this.linksApiService.getAllLinks(this.loggedInUser.email);
     hideLoader();
     this.renderLinks(data);
   }
   saveLink = async ({ link, timestamp }) => {
-    const { data }: { data: ISavedLink } = await this.linksApiService.saveLink({ link, timestamp });
+    const data: ISavedLink = await this.linksApiService.saveLink({
+      link,
+      timestamp,
+      email: this.loggedInUser.email,
+    });
     this.renderLinks(
       this.links.map((l) => {
         if (l.url === link) {
@@ -73,6 +85,6 @@ export class HomePageComponent extends BaseComponent {
   deleteLinkItem = async ({ detail }: CustomEventInit) => {
     const link = detail?.link;
     this.renderLinks(this.links.filter((l) => l.link !== link));
-    await this.linksApiService.deleteLink(link);
+    await this.linksApiService.deleteLink(link, this.loggedInUser.email);
   };
 }
