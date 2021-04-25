@@ -7,23 +7,18 @@ export class LinksApiService {
     return this.instance;
   }
 
-  async getAllLinks() {
-    return await firebase.functions().httpsCallable('getAllLinks')();
+  async getAllLinks(email: string) {
+    return await fetch(`/api/get-links`, { method: 'POST', body: JSON.stringify({ email }) }).then((res) => res.json());
   }
 
-  async saveLink({ link, timestamp }) {
-    if (!link.startsWith('http://') && !link.startsWith('https://')) {
-      link = `http://${link}`;
-    }
-    const previewData = await this.getLinkPreview(link);
-    const saveLink = firebase.functions().httpsCallable('saveLink');
-    return await saveLink({ link, timestamp, previewData });
+  async saveLink({ link, timestamp, email }) {
+    return await fetch(`/api/save-link`, {
+      method: 'POST',
+      body: JSON.stringify({ link, timestamp, email }),
+    }).then((res) => res.json());
   }
-  async deleteLink(link: string) {
+  async deleteLink(link: string, email) {
     const deleteLink = firebase.functions().httpsCallable('deleteLink');
-    await deleteLink({ link });
-  }
-  async getLinkPreview(link) {
-    return await fetch(`/api/link-preview?link=${link}`).then((res) => res.json());
+    await deleteLink({ link, email });
   }
 }
