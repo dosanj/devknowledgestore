@@ -1,5 +1,6 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
 import { getFireStoreDB } from './firestore';
+console.log(process.env.GCLOUD_CREDENTIALS);
 const firestore = getFireStoreDB();
 export default async (req: VercelRequest, res: VercelResponse) => {
   const body = JSON.parse(req.body);
