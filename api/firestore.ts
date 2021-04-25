@@ -1,10 +1,16 @@
 const { Firestore } = require('@google-cloud/firestore');
+const fs = require('path');
 
 let firestore = null;
-console.log(process.env.GCLOUD_CREDENTIALS);
-export function getFireStoreDB() {
+let buff = Buffer.from(process.env.GCLOUD_CREDENTIALS, 'base64');
+let credentials = buff.toString('ascii');
+fs.writeFileSync('./credentials.json', credentials);
+export async function getFireStoreDB() {
   if (!firestore) {
-    firestore = new Firestore();
+    const firestore = new Firestore({
+      projectId: 'linkstore-821d8',
+      keyFilename: './credentials.json',
+    });
     firestore.settings({
       ignoreUndefinedProperties: true,
     });
