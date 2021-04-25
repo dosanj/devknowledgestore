@@ -24,6 +24,6 @@ export class LinksApiService {
     await deleteLink({ link });
   }
   async getLinkPreview(link) {
-    return await fetch(`https://link-preview-two.vercel.app/api/link-preview?link=${link}`).then((res) => res.json());
+    return await fetch(`/api/link-preview?link=${link}`).then((res) => res.json());
   }
 }
