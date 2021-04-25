@@ -1,7 +1,7 @@
 
 {
   "compilerOptions": {
-    "outDir": "./dist/",
+    "outDir": "./public/",
     "noImplicitAny": false,
     "module": "ESNext",
     "moduleResolution": "node",
