@@ -8,8 +8,7 @@ export function getFireStoreDB() {
     let { client_email, private_key, project_id: projectId } = JSON.parse(buff.toString('ascii'));
     firestore = new Firestore({
       projectId,
-      client_email,
-      private_key,
+      credentials: { client_email, private_key },
       ignoreUndefinedProperties: true,
     });
   }
