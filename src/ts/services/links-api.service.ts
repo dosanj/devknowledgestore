@@ -26,7 +26,7 @@ export class LinksApiService {
     await deleteLink({ link, email });
   }
   async getLinkPreview(link) {
-    return await fetch(`https://link-preview-two.vercel.app/api/link-preview`, {
+    return await fetch(`/api/link-preview`, {
       method: 'POST',
       body: JSON.stringify({ link }),
     }).then((res) => res.json());
