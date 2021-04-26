@@ -12,13 +12,23 @@ export class LinksApiService {
   }
 
   async saveLink({ link, timestamp, email }) {
+    if (!link.startsWith('http://') && !link.startsWith('https://')) {
+      link = `http://${link}`;
+    }
+    const previewData = await this.getLinkPreview(link);
     return await fetch(`/api/save-link`, {
       method: 'POST',
-      body: JSON.stringify({ link, timestamp, email }),
+      body: JSON.stringify({ link, timestamp, email, previewData }),
     }).then((res) => res.json());
   }
   async deleteLink(link: string, email) {
     const deleteLink = firebase.functions().httpsCallable('deleteLink');
     await deleteLink({ link, email });
+  }
+  async getLinkPreview(link) {
+    return await fetch(`https://link-preview-two.vercel.app/api/link-preview`, {
+      method: 'POST',
+      body: JSON.stringify({ link }),
+    }).then((res) => res.json());
   }
 }
