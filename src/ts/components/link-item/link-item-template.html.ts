@@ -19,7 +19,7 @@ export default ({ linkItem, toggleActionsPopup, showActionsPopup, deleteLinkItem
       aria-label="${linkItem?.title}"
       href="${linkItem?.url}"
       target="_blank"
-      class="h-36 w-36 bg-green-700 opacity-75 no-underline"
+      class="h-36 w-36 bg-green-700 no-underline"
     >
       ${linkItem.image ? html`<img src="${linkItem.image}" class="h-full w-full" />` : null}
     </a>
