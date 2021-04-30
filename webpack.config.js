@@ -3,7 +3,7 @@ const glob = require('glob');
 const config = {
   entry: {
     main: glob.sync('./src/**/*.ts', {
-      ignore: ['./src/**/*.d.ts', './functions/**/*.ts'],
+      ignore: ['./src/**/*.d.ts'],
     }),
     styles: './src/css/styles.scss',
   },

@@ -1,5 +1,4 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
-import { getLinkPreview } from 'link-preview-js';
 import { getFireStoreDB } from './firestore';
 const firestore = getFireStoreDB();
 export default async (req: VercelRequest, res: VercelResponse) => {

@@ -1,5 +1,4 @@
 const { Firestore } = require('@google-cloud/firestore');
-const fs = require('path');
 
 let firestore = null;
 export function getFireStoreDB() {

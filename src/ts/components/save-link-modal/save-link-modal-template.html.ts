@@ -5,11 +5,27 @@ export default ({ linkInput, saveLink, link, closeDialog, disableSaveButton, dis
   <div id="save-link" class="modal-dialog">
     <div class="modal-content">
       <a href="#" title="Close" class="modal-close">x</a>
-      <input placeholder=" Save a URL https://..." class="save-link-input" @input=${linkInput} .value=${live(link)} />
+      <input
+        placeholder=" Save a URL https://..."
+        class="w-full items-center rounded border-transparent h-10 px-4 outline-none bg-gray-100"
+        @input=${linkInput}
+        .value=${live(link)}
+      />
       ${displayError ? html`<p class="mt-3 text-complimentry">${displayError}</p>` : html``}
       <div class="mt-3 flex flex-justify-end">
-        <button class="btn" @click=${closeDialog}>Close</button>
-        <button class="btn btn--primary ml-3" @click=${saveLink} .disabled=${disableSaveButton}>Save</button>
+        <button
+          class="bg-secondary text-black text-center border-opacity-10 px-4 shadow-sm hover:filter-none filter brightness-110 rounded h-10"
+          @click=${closeDialog}
+        >
+          Close
+        </button>
+        <button
+          class="bg-primary text-secondary text-center border-opacity-10 px-4 shadow-sm hover:filter-none filter brightness-110 rounded h-10 flex w-12 ml-3"
+          @click=${saveLink}
+          .disabled=${disableSaveButton}
+        >
+          Save
+        </button>
       </div>
     </div>
   </div>
