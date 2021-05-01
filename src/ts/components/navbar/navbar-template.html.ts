@@ -11,7 +11,7 @@ export default ({ loggedInUser, logOut }) => html`<nav
   <div class="flex items-center">
     ${loggedInUser
       ? html`<button
-          class="bg-gray-200 text-black text-center border-opacity-10 px-4 shadow-sm hover:filter-none filter brightness-110 rounded h-10"
+          class="bg-gray-300 text-black text-center border-opacity-10 px-4 shadow-sm hover:filter-none filter brightness-110 rounded h-10"
           @click=${logOut}
         >
           Log Out
