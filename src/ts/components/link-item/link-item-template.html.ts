@@ -28,11 +28,12 @@ export default ({ linkItem, toggleActionsPopup, showActionsPopup, deleteLinkItem
         aria-label="${linkItem?.title}"
         href="${linkItem?.url}"
         target="_blank"
+        rel="noreferrer"
         class="overflow-hidden line-clamp-2 text-primary mb-2 no-underline"
       >
         ${linkItem?.title ? linkItem.title : linkItem?.url}
       </a>
-      <a href="${linkItem?.url}" target="_blank" class="mb-2 no-underline">
+      <a href="${linkItem?.url}" target="_blank" rel="noreferrer" class="mb-2 no-underline">
         <cite class="text-primary opacity-50">${linkItem?.siteName}</cite>
       </a>
       <div class="overflow-hidden line-clamp-2 mb-2">${linkItem?.description}</div>
